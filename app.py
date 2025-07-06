@@ -7,7 +7,8 @@ from utils.img_gen import generate_place_image
 import os
 import pandas as pd
 from openai import OpenAI
-openai = OpenAI()
+openai = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+
 
 st.set_page_config("GPT‑4 Streamlit Chatbot", page_icon="🤖")
 
