@@ -1,0 +1,8 @@
+streamlit
+openai
+pandas
+plotly
+prophet
+astral
+timezonefinder
+requests
