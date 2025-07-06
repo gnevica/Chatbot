@@ -10,16 +10,16 @@ from openai import OpenAI
 openai = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 
-st.set_page_config("GPT‑4 Streamlit Chatbot", page_icon="🤖")
+st.set_page_config("AI Chatbot")
 
 session = st.session_state
 if "memory" not in session:
     session.memory = ChatMemory()
 
-st.title("🤖 24/7 GPT‑4 Streamlit Chatbot")
+st.title("24/7 AI Chatbot")
 st.sidebar.header("Options")
 uploaded = st.sidebar.file_uploader("Upload CSV for viz/forecast", type=["csv"])
-location_button = st.sidebar.button("Get Local Weather 🌍")
+location_button = st.sidebar.button("Get Local Weather :")
 
 if location_button:
     weather = get_weather()
@@ -32,7 +32,7 @@ if st.sidebar.button("Generate Image"):
     st.image(img, caption=f"AI visualization: {place}")
 
 # Chat area
-st.header("Chat with GPT‑4")
+st.header("Chat with me:")
 if user_input := st.text_input("You:"):
     session.memory.add("user", user_input)
     if uploaded is not None and "plot" in user_input.lower():
@@ -46,7 +46,7 @@ if user_input := st.text_input("You:"):
     else:
         messages = session.memory.get()
         response = openai.chat.completions.create(
-            model="gpt-4",
+            model="gpt-3.5-turbo",
             messages=messages
         ).choices[0].message.content
         session.memory.add("assistant", response)
