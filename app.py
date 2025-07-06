@@ -45,6 +45,10 @@ if user_input := st.text_input("You:"):
         st.plotly_chart(fc)
     else:
         messages = session.memory.get()
-        response = openai.chat.completions.create(messages=messages).choices[0].message.content
+        response = openai.chat.completions.create(
+            model="gpt-4",
+            messages=messages
+        ).choices[0].message.content
         session.memory.add("assistant", response)
         st.markdown(f"**GPT‑4:** {response}")
+
