@@ -46,7 +46,7 @@ if user_input := st.text_input("You:"):
     else:
         messages = session.memory.get()
         response = openai.chat.completions.create(
-            model="gpt-3.5-turbo",
+            model="gpt-4",
             messages=messages
         ).choices[0].message.content
         session.memory.add("assistant", response)
