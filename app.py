@@ -7,8 +7,7 @@ from utils.img_gen import generate_place_image
 import os
 import pandas as pd
 from openai import OpenAI
-openai = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
-
+api_key = st.secrets["openrouter"]["api_key"]
 
 st.set_page_config("AI Chatbot")
 
