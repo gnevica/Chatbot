@@ -18,12 +18,12 @@ if "memory" not in session:
     session.memory = ChatMemory()
 
 # Page title
-st.title("🤖 24/7 AI Chatbot")
+st.title("24/7 AI Chatbot")
 
 # Sidebar options
 st.sidebar.header("Options")
 
-uploaded = st.sidebar.file_uploader("Upload CSV for viz/forecast", type=["csv"])
+uploaded = st.sidebar.file_uploader("Upload CSV file", type=["csv"])
 
 if st.sidebar.button("Get Local Weather :"):
     weather = get_weather()
@@ -60,7 +60,7 @@ if user_input:
             "Content-Type": "application/json"
         }
         body = {
-            "model": "openai/gpt-4",  # You can also use 'mistralai/mixtral-8x7b' (free)
+            "model": "openai/gpt-4",
             "messages": messages
         }
 
